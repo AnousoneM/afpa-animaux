@@ -1,0 +1,46 @@
+body {
+  max-width: 1200px;
+  margin: auto;
+
+  /* Mise en place du background */
+  background-image: url(/images/bg.jpg);
+}
+
+h1 {
+  color: green;
+  text-align: center;
+}
+
+.galerie {
+  border: 1px solid white;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+img {
+  /* nous mettons en place des images en carré 10rem */
+  width: 10rem;
+  height: 10rem;
+
+  /* nous utilisons le cover pour ne pas tronquer l'image  */
+  object-fit: cover;
+}
+
+img:hover {
+  /* transform permet d'agrandir l'image */
+  transform: scale(1.2);
+
+  /* transition permet d'adoucir la transformation */
+  transition: all 1s ease;
+
+  /* nous modifions le z-index pour que le zoom soit en premier plan */
+  z-index: 1;
+}
+
+/* on sélectionne toutes les images qui ne sont pas hover à l'aide du sélecteur :not */
+img:not(:hover) {
+  filter: sepia(1);
+}
