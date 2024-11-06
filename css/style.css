@@ -16,6 +16,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  /* on centre les images */
   justify-content: center;
 }
 
@@ -28,6 +29,11 @@ img {
   object-fit: cover;
 }
 
+img {
+  /* nous appliquons un filtre sepia de base */
+  filter: sepia(0.8);
+}
+
 img:hover {
   /* transform permet d'agrandir l'image */
   transform: scale(1.2);
@@ -35,11 +41,9 @@ img:hover {
   /* transition permet d'adoucir la transformation */
   transition: all 1s ease;
 
+  /* nous enlevons le filtre sepia */
+  filter: sepia(0);
+
   /* nous modifions le z-index pour que le zoom soit en premier plan */
   z-index: 1;
-}
-
-/* on sélectionne toutes les images qui ne sont pas hover à l'aide du sélecteur :not */
-img:not(:hover) {
-  filter: sepia(1);
 }
