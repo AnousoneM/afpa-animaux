@@ -29,20 +29,21 @@ img {
   object-fit: cover;
 }
 
-img {
-  /* nous appliquons un filtre sepia de base */
-  filter: sepia(0.8);
+/* Nous appliquons le filtre sepia des qu'une image est survolée (:hover) UNIQUEMENT sur le reste des images qui ne sont pas survolées (:not(:hover)) */
+.galerie:has(img:hover) img:not(:hover) {
+  filter: sepia(1);
 }
 
-img:hover {
+/* sur l'image survolée */
+.galerie img:hover {
+  /* nous enlevons le filtre sepia */
+  filter: none;
+
   /* transform permet d'agrandir l'image */
   transform: scale(1.2);
 
   /* transition permet d'adoucir la transformation */
-  transition: all 1s ease;
-
-  /* nous enlevons le filtre sepia */
-  filter: sepia(0);
+  transition: 1s;
 
   /* nous modifions le z-index pour que le zoom soit en premier plan */
   z-index: 1;
